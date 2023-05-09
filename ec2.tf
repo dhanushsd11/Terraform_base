@@ -34,8 +34,8 @@ resource "aws_instance" "web_server_az1" {
     type     = "ssh"
     user     = "ubuntu"
     password = ""
-    private_key = "${file("/home/id_rsa")}"
-  }
+    private_key = "${file("/home/gitlab/.ssh/id_rsa")}"
+  }     
 
   tags = {
     Name = "web-server-${count.index+1}"
@@ -71,7 +71,7 @@ resource "aws_instance" "web_server_az2" {
     type     = "ssh"
     user     = "ubuntu"
     password = ""
-    private_key = "${file("/home/id_rsa")}"
+    private_key = "${file("/home/gitlab/.ssh/id_rsa")}"
   }
 
   tags = {
@@ -82,7 +82,7 @@ resource "aws_instance" "web_server_az2" {
 
 resource "aws_key_pair" "deployer" {
   key_name   = "id_rsa"
-  public_key = file("/home/id_rsa.pub")
+  public_key = file("/home/gitlab/.ssh/id_rsa.pub")
 }
   
 
