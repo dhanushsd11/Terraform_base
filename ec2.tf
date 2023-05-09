@@ -82,7 +82,7 @@ resource "aws_instance" "web_server_az2" {
 
 resource "aws_key_pair" "deployer" {
   key_name   = "id_rsa"
-  public_key = file("/home/id_rsa.pub")
+  public_key = file("/home/ec2-user/id_rsa.pub")
 }
   
 
