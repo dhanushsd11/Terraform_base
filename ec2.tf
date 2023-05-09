@@ -34,7 +34,7 @@ resource "aws_instance" "web_server_az1" {
     type     = "ssh"
     user     = "ubuntu"
     password = ""
-    private_key = "${file("/home/id_rsa")}"
+    private_key = "${file("/home/ec2-user/id_rsa")}"
   }
 
   tags = {
